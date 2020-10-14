@@ -6,7 +6,8 @@ public class DataUser {
     public static String name ="";
     public static String lastName ="";
     public static String email ="";
-    public static String fotoAvatar ="";
+    public static String imageAvatar ="";
     public static String token ="";
+    public static  String password = "";
 
 }

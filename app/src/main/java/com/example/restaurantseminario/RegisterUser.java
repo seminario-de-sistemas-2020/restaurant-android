@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.example.restaurantseminario.utils.DataServer;
+import com.example.restaurantseminario.utils.DataUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.loopj.android.http.AsyncHttpClient;
@@ -133,9 +134,21 @@ public class RegisterUser extends AppCompatActivity {
                                 response.getString("message");
                                 Toast.makeText(RegisterUser.this ,response.getString("message"), Toast.LENGTH_LONG).show();
                                 JSONObject dataUser = response.getJSONObject("userAdd");
-
+                                    // funcoin que recibe un idUser para guardar la imagen
                                     EnviarFotoAvatar(dataUser.getString("_id"));
 
+                                    // caragar los datos del usuario
+                                DataUser.name = dataUser.getString("name");
+                                DataUser.lastName = dataUser.getString("lastName");
+                                DataUser.id = dataUser.getString("_id");
+                                DataUser.role = dataUser.getString("role");
+                                DataUser.email = dataUser.getString("email");
+                                DataUser.imageAvatar = dataUser.getString("fotoAvatar");
+                                DataUser.password = dataUser.getString("password");
+
+                                //una vez cargado los datos el intent se va al home
+                                Intent intent = new Intent(root, BottonNavigstionActivity.class);
+                                startActivityForResult(intent, 0);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
