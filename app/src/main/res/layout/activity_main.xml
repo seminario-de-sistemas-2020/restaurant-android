@@ -37,9 +37,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/tbn_signup"
+        android:id="@+id/btn_signup"
         android:layout_width="250dp"
-        android:layout_height="58dp"
+        android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/restangule"
@@ -54,14 +54,14 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="250dp"
-        android:layout_height="58dp"
+        android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/restangule"
         android:backgroundTint="#01DCC7"
         android:text="Sign In"
         android:textColor="#151515"
-        app:layout_constraintBottom_toTopOf="@+id/tbn_signup"
+        app:layout_constraintBottom_toTopOf="@+id/btn_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +97,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/restangule"
-        android:backgroundTint="#F8F7F7"
+        android:backgroundTint="#FFFFFF"
         android:drawableStart="@drawable/ic_baseline_vpn_key_24"
         android:ems="10"
         android:hint="Password"

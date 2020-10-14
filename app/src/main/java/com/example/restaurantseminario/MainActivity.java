@@ -2,6 +2,8 @@ package com.example.restaurantseminario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.service.autofill.UserData;
 import android.util.Log;
@@ -28,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         SigninUse();
+        SignOut();
+    }
+
+    private void SignOut() {
+        Button resgister = (Button) findViewById(R.id.btn_signup);
+        resgister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), RegisterUser.class);
+                startActivityForResult(intent,0);
+            }
+        });
     }
 
     private void SigninUse() {
@@ -69,7 +83,10 @@ public class MainActivity extends AppCompatActivity {
                                 //DataUser.token = (dataUser.getString("token").length()>0)? dataUser.getString("token"):"";
 
                                 Toast.makeText(MainActivity.this, DataUser.id, Toast.LENGTH_SHORT).show();
-                                
+
+                                //ir la segunda activida (BottonNavigationActivity)
+                                Intent intent = new Intent(MainActivity.this,BottonNavigstionActivity.class);
+                                startActivityForResult(intent,0);
 
                             }catch (JSONException e){
                                 Toast.makeText(MainActivity.this,"error al ingresar" , Toast.LENGTH_SHORT).show();
@@ -93,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
                     });
 
+                    //password.setText("");
                 }else{
                     Toast.makeText(MainActivity.this, "Complete los campos requeridos", Toast.LENGTH_SHORT).show();
                 }
