@@ -26,12 +26,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getSupportActionBar().hide();
         SigninUse();
         SignOut();
+
+        LanzarDirectoAUnActividad();
+
     }
+
+    public void LanzarDirectoAUnActividad(){
+        Intent intent = new Intent(this, BottonNavigstionActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
+
 
     private void SignOut() {
         Button resgister = (Button) findViewById(R.id.btn_signup);

@@ -10,4 +10,15 @@ public class DataUser {
     public static String token ="";
     public static  String password = "";
 
+
+    // datos de prueba
+    public static String role2 ="owner";
+    public static String id2 ="123456789";
+    public static String name2 ="pedro";
+    public static String lastName2 ="escobar";
+    public static String email2 ="peddro@gmail.com";
+    public static String imageAvatar2 ="";
+    public static String token2 ="123456789";
+    public static  String password2 = "admin";
+
 }
