@@ -12,7 +12,7 @@ public class DataUser {
 
 
     // datos de prueba
-    public static String role2 ="owner";
+    public static String role2 ="user";
     public static String id2 ="123456789";
     public static String name2 ="pedro";
     public static String lastName2 ="escobar";

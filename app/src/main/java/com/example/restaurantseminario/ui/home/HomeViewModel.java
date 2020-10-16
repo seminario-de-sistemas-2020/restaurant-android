@@ -12,7 +12,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue(DataUser.id2);
+        mText.setValue("idUser:"+ DataUser.id2 + "- List restaunts - " + DataUser.role2);
     }
 
     public LiveData<String> getText() {

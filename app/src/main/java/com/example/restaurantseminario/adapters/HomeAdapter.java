@@ -1,13 +1,26 @@
 package com.example.restaurantseminario.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.bumptech.glide.Glide;
 import com.example.restaurantseminario.R;
+import com.example.restaurantseminario.RegisterUser;
+import com.example.restaurantseminario.listMenus.listaDeMenus;
 
 
 import java.util.ArrayList;
@@ -37,12 +50,35 @@ public class HomeAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, final ViewGroup viewGroup) {
         if( view == null ){
             view =LayoutInflater.from(context).inflate(R.layout.item_lista_home_data, null);
             TextView title = view.findViewById(R.id.txt_title);
             title.setText(LISTDATA.get(position).getNombre());
+            Button button = view.findViewById(R.id.btn_ver_menu);
+            ImageView logoImage = view.findViewById(R.id.img_view_foto_restauant);
+            //if(LISTDATA.get(position).getLogo().equals("")){
+                Glide.with(context)
+                        .load(LISTDATA.get(position).getLogo())
+                        .into(logoImage);
+
+            //}
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(), LISTDATA.get(position).getIdClient(), Toast.LENGTH_SHORT).show();
+
+                    //como vagenar a otro fragmen
+                    Intent intent =new Intent(v.getContext(), RegisterUser.class);
+                    //ViewGroup.inflate(intent,0);
+
+                }
+            });
         }
+
+
+
         return view;
     }
 }
