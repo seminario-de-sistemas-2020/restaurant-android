@@ -63,22 +63,23 @@ public class HomeAdapter extends BaseAdapter {
                         .into(logoImage);
 
             //}
+            TextView txtViewNumerPhone = (TextView) view.findViewById(R.id.txt_phone);
+            txtViewNumerPhone.setText(LISTDATA.get(position).getTelefono().toString());
+            TextView textViewLugar = (TextView) view.findViewById(R.id.txt_calle);
+            textViewLugar.setText(LISTDATA.get(position).getCalle());
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     Toast.makeText(v.getContext(), LISTDATA.get(position).getIdClient(), Toast.LENGTH_SHORT).show();
 
-                    //como vagenar a otro fragmen
+                    //como navegar a otro fragmen o a otra activida
                     Intent intent =new Intent(v.getContext(), RegisterUser.class);
                     //ViewGroup.inflate(intent,0);
 
                 }
             });
         }
-
-
-
         return view;
     }
 }

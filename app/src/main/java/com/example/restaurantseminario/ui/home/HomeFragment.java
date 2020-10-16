@@ -58,8 +58,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        switch (DataUser.role2) {
-            case "user":{
+        switch (DataUser.role) {
+            case "client":{
                 siRoleUser(this.getContext());
                 return;
             }
@@ -74,9 +74,12 @@ public class HomeFragment extends Fragment {
 
         ListView list  = this.getActivity().findViewById(R.id.restaurante_list);
         ArrayList<StructureDataHome>datos = new ArrayList<>();
-        for (int i=0; i<2; i++){
+        for (int i=0; i<1; i++){
             StructureDataHome item = new StructureDataHome();
             item.setNombre("fonda de doña gavy"+ i);
+            item.setTelefono(2345643);
+            item.setCalle("escalante n 12");
+            
             datos.add(item);
         }
         HomeAdapter adapter = new HomeAdapter(datos,this.getContext());

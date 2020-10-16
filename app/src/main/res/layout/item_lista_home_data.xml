@@ -26,24 +26,30 @@
 
             <TextView
                 android:id="@+id/txt_title"
-                android:layout_width="206dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
+                android:layout_width="197dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="12dp"
                 android:text="TextView"
                 android:textAlignment="textStart"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.086"
+                app:layout_constraintHorizontal_bias="0.38"
                 app:layout_constraintStart_toEndOf="@+id/img_view_foto_restauant"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txt_phone"
-                android:layout_width="203dp"
-                android:layout_height="35dp"
+                android:layout_width="197dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:drawableStart="@android:drawable/stat_sys_phone_call"
                 android:text="TextView"
+                android:textStyle="bold"
+                app:drawableTint="#673AB7"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toEndOf="@+id/img_view_foto_restauant"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
@@ -52,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginEnd="4dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="13dp"
                 android:background="@drawable/restangule"
                 android:backgroundTint="#D0A0FF"
                 android:text="ver menu"
@@ -62,6 +68,31 @@
                 app:layout_constraintStart_toEndOf="@+id/img_view_foto_restauant"
                 app:layout_constraintTop_toBottomOf="@+id/txt_phone"
                 app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/txt_calle"
+                android:layout_width="200dp"
+                android:layout_height="19dp"
+                android:text="TextView"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toEndOf="@+id/img_view_foto_restauant"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Dirteccion:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toEndOf="@+id/img_view_foto_restauant"
+                app:layout_constraintTop_toBottomOf="@+id/txt_phone" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

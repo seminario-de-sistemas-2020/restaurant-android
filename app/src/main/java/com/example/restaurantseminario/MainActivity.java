@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         SigninUse();
         SignOut();
 
-        LanzarDirectoAUnActividad();
+        //LanzarDirectoAUnActividad();
 
     }
 

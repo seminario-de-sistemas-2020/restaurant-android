@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.restaurantseminario.R;
+import com.example.restaurantseminario.utils.DataUser;
 
 public class NotificationsFragment extends Fragment {
 
@@ -31,5 +32,28 @@ public class NotificationsFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        switch(DataUser.role2){
+            case "user":{
+                siEsUser();
+                break;
+            }
+            case "owner": {
+                siEsOwner();
+                break;
+            }
+        }
+    }
+
+
+    private void siEsUser() {
+
+    }
+
+    private void siEsOwner() {
     }
 }
