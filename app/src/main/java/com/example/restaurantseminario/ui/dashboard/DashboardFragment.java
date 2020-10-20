@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,9 +19,19 @@ import com.example.restaurantseminario.adapters.HomeAdapter;
 import com.example.restaurantseminario.adapters.StructureDataHome;
 import com.example.restaurantseminario.menuAdapter.DashBoardAdapter;
 import com.example.restaurantseminario.menuAdapter.StructureDashboard;
+import com.example.restaurantseminario.utils.DataServer;
 import com.example.restaurantseminario.utils.DataUser;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class DashboardFragment extends Fragment {
 
@@ -58,17 +69,45 @@ public class DashboardFragment extends Fragment {
 
 
     private void siEsUser() {
-        ListView list  = this.getActivity().findViewById(R.id.hello);
-        ArrayList<StructureDashboard> datos = new ArrayList<>();
+       final ListView list  = this.getActivity().findViewById(R.id.hello);
+       final ArrayList<StructureDashboard> datos = new ArrayList<>();
 
-        StructureDashboard item = new StructureDashboard();
+        final String IDRESTAURANT="5f886cca97c4e001c2b8a5e8";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(DataServer.HOST_LIST_MENU_IDRESTAURANTE + IDRESTAURANT +"&order=asc", new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
 
-            item.setName("hellooooooooo");
+                try {
+                    response.getString("listMenu");
 
-            datos.add(item);
+                    Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                    JSONArray listData = response.getJSONArray("listMenu");
+                    for (int i=0; i<listData.length();i++){
+                        JSONObject obj = listData.getJSONObject(i);
+                        String nombre = obj.getString("nombre");
 
-        DashBoardAdapter adapter = new DashBoardAdapter(datos,this.getContext());
-        list.setAdapter(adapter);
+
+                        StructureDashboard item = new StructureDashboard();
+                        item.setName(nombre);
+
+                        datos.add(item);
+
+                    }
+
+
+                    DashBoardAdapter adapter = new DashBoardAdapter(datos,getContext());
+                    list.setAdapter(adapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+
     }
 
     private void siEsOwner() {

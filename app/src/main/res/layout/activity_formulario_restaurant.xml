@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormularioRestaurant">
+
+    <ScrollView
+        android:layout_width="414dp"
+        android:layout_height="630dp"
+        android:layout_marginBottom="231dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txt_nombre3"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre6" />
+
+            <TextView
+                android:id="@+id/txt_view_crearcuenta2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="Crear NuevoServicio de Comida"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <Button
+                android:id="@+id/btn_tomarFoto2"
+                android:layout_width="162dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/restangule"
+                android:backgroundTint="#B885F3"
+                android:text="Selecciona lugar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre4" />
+
+            <EditText
+                android:id="@+id/txt_nombre5"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_view_crearcuenta2" />
+
+            <EditText
+                android:id="@+id/txt_nombre2"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre5" />
+
+            <EditText
+                android:id="@+id/txt_nombre8"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre2" />
+
+            <Button
+                android:id="@+id/btn_realizar_registro2"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/restangule"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:text="Enviar Datos"
+                android:textColor="#FDFDFD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_tomarFoto4" />
+
+            <EditText
+                android:id="@+id/txt_nombre7"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre8" />
+
+            <Button
+                android:id="@+id/btn_tomarFoto4"
+                android:layout_width="162dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/restangule"
+                android:backgroundTint="#B885F3"
+                android:text="Seleciona foto lugar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_tomarFoto3" />
+
+            <TextView
+                android:id="@+id/text_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="812dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="90dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="24dp"
+                android:text="Lat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre4" />
+
+            <EditText
+                android:id="@+id/txt_nombre4"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre3" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="79dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="log"
+                app:layout_constraintStart_toEndOf="@+id/btn_tomarFoto2"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre4" />
+
+            <Button
+                android:id="@+id/btn_tomarFoto3"
+                android:layout_width="162dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/restangule"
+                android:backgroundTint="#B885F3"
+                android:text="Seleccionar logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_tomarFoto2" />
+
+            <EditText
+                android:id="@+id/txt_nombre6"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/restangule"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nombre7" />
+
+            <ListView
+                android:id="@+id/hello"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_marginTop="516dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.878"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
