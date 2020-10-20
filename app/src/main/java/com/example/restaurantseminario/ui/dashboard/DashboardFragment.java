@@ -68,11 +68,11 @@ public class DashboardFragment extends Fragment {
     }
 
 
-    private void siEsUser() {
+    private void siEsOwner() {
        final ListView list  = this.getActivity().findViewById(R.id.hello);
        final ArrayList<StructureDashboard> datos = new ArrayList<>();
 
-        final String IDRESTAURANT="5f886cca97c4e001c2b8a5e8";
+        final String IDRESTAURANT= DataUser.idOwnerRestarant;
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(DataServer.HOST_LIST_MENU_IDRESTAURANTE + IDRESTAURANT +"&order=asc", new JsonHttpResponseHandler(){
             @Override
@@ -87,10 +87,16 @@ public class DashboardFragment extends Fragment {
                     for (int i=0; i<listData.length();i++){
                         JSONObject obj = listData.getJSONObject(i);
                         String nombre = obj.getString("nombre");
+                        String urlImage = obj.getString("fotoProducto");
+                        String descripcion = obj.getString("descripcion");
+                        double precio =(double) obj.getDouble("precio");
 
 
                         StructureDashboard item = new StructureDashboard();
                         item.setName(nombre);
+                        item.setUrlPhotoProducto(urlImage);
+                        item.setDescription(descripcion);
+                        item.setPrecio(precio);
 
                         datos.add(item);
 
@@ -110,7 +116,8 @@ public class DashboardFragment extends Fragment {
 
     }
 
-    private void siEsOwner() {
+    private void siEsUser() {
+
     }
 
 

@@ -64,27 +64,69 @@ public class HomeFragment extends Fragment {
                 return;
             }
             case "owner":{
-                isRoleOwner();
+                isRoleOwner(this.getContext());
                 return;
             }
         }
     }
 
-    private void isRoleOwner() {
+    private void isRoleOwner( final Context context) {
 
-        ListView list  = this.getActivity().findViewById(R.id.restaurante_list);
-        ArrayList<StructureDataHome>datos = new ArrayList<>();
-        for (int i=0; i<1; i++){
-            StructureDataHome item = new StructureDataHome();
-            item.setNombre("fonda de doña gavy"+ i);
-            item.setTelefono(2345643);
-            item.setCalle("escalante n 12");
-            
-            datos.add(item);
-        }
-        HomeAdapter adapter = new HomeAdapter(datos,this.getContext());
-        //ArrayAdapter<String> adapter = new ArrayAdapter(this.getContext(),android.R.layout.simple_list_item_1,datos);
-        list.setAdapter(adapter);
+        final ListView list  = this.getActivity().findViewById(R.id.restaurante_list);
+        final ArrayList<StructureDataHome>datos = new ArrayList<>();
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(DataServer.HOST_SHOW_IDRESTAURANT_OWNER + DataUser.id, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+                try {
+                            response.getString("message");
+                    Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                    JSONArray listData = response.getJSONArray("restaurants");
+                    for (int i=0;i<listData.length();i++){
+                        JSONObject obj = listData.getJSONObject(i);
+
+                        DataUser.idOwnerRestarant = (String) obj.getString("_id");
+
+                        String nombre = (String)obj.getString("nombre");
+                        String id = (String) obj.getString("_id");
+                        String idClient = (String) obj.getString("idClient");
+                        String nit = (String) obj.getString("nit");
+                        String propietario = (String) obj.getString("propietario");
+                        String calle = (String) obj.getString("calle");
+                        int telefono = (int) obj.getInt("telefono");
+                        double lat = (double) obj.getInt("lat");
+                        double log = (double) obj.getDouble("log");
+                        String logo =(String) obj.getString("logo");
+                        String fotoLugar = (String) obj.getString("fotoLugar");
+
+                        StructureDataHome item = new StructureDataHome();
+                        item.setNombre(nombre);
+                        item.setId(id);
+                        item.setIdClient(idClient);
+                        item.setNit(nit);
+                        item.setPropietario(propietario);
+                        item.setCalle(calle);
+                        item.setTelefono(telefono);
+                        item.setLat(lat);
+                        item.setLog(log);
+                        item.setLogo(logo);
+                        item.setFotoLugar(fotoLugar);
+
+                        datos.add(item);
+                    }
+
+                    HomeAdapter adapter = new HomeAdapter(datos,context);
+                    list.setAdapter(adapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+
     }
 
 

@@ -29,6 +29,7 @@ public class HomeAdapter extends BaseAdapter {
 
     private ArrayList<StructureDataHome> LISTDATA;
     private Context context;
+
     public HomeAdapter(ArrayList<StructureDataHome> data, Context context){
         LISTDATA = data;
         this.context = context;
@@ -74,8 +75,10 @@ public class HomeAdapter extends BaseAdapter {
                     Toast.makeText(v.getContext(), LISTDATA.get(position).getIdClient(), Toast.LENGTH_SHORT).show();
 
                     //como navegar a otro fragmen o a otra activida
-                    Intent intent =new Intent(v.getContext(), RegisterUser.class);
-                    //ViewGroup.inflate(intent,0);
+                    Intent intent = new Intent(viewGroup.getContext(), RegisterUser.class);
+                    intent.putExtra("idRestaurant", LISTDATA.get(position).getId());
+                    viewGroup.getContext().startActivity(intent);
+
 
                 }
             });

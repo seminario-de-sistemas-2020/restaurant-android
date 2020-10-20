@@ -9,6 +9,7 @@ public class DataUser {
     public static String imageAvatar ="";
     public static String token ="";
     public static  String password = "";
+    public  static String idOwnerRestarant = "";
 
 
     // datos de prueba

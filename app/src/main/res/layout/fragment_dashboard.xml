@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E1E0E0"
     tools:context=".ui.dashboard.DashboardFragment">
 
     <ScrollView
         android:layout_width="414dp"
         android:layout_height="630dp"
-        android:layout_marginBottom="231dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
@@ -35,10 +35,10 @@
 
             <Button
                 android:id="@+id/btn_realizar_registro2"
-                android:layout_width="185dp"
+                android:layout_width="180dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/restangule"
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:text="Add restaurante"
@@ -48,9 +48,9 @@
 
             <Button
                 android:id="@+id/btn_realizar_registro3"
-                android:layout_width="183dp"
+                android:layout_width="180dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/restangule"
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:text="Add menu"
@@ -73,12 +73,14 @@
 
             <ListView
                 android:id="@+id/hello"
-                android:layout_width="413dp"
-                android:layout_height="339dp"
-                android:layout_marginTop="15dp"
+                android:layout_width="411dp"
+                android:layout_height="490dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_view_crearcuenta2" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_view_crearcuenta2"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
