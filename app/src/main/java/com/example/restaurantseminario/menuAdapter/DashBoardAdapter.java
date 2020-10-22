@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.restaurantseminario.EditarMenuOwner;
 import com.example.restaurantseminario.FormularioRestaurant;
 import com.example.restaurantseminario.R;
 
@@ -42,7 +43,7 @@ public class DashBoardAdapter extends BaseAdapter {
 
 
     @Override
-    public View getView(int position, View view, final ViewGroup parent) {
+    public View getView(final int position, View view, final ViewGroup parent) {
         if(view  == null){
             view = LayoutInflater.from(context).inflate(R.layout.item_list_menu, null);
             TextView txtDescription = view.findViewById(R.id.txt_owner_menu_description);
@@ -62,7 +63,15 @@ public class DashBoardAdapter extends BaseAdapter {
             btnEditar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(parent.getContext(), FormularioRestaurant.class);
+                    Intent intent = new Intent(parent.getContext(), EditarMenuOwner.class);
+
+                    intent.putExtra("Name", LISTDATA.get(position).getName());
+                    intent.putExtra("idMenu",LISTDATA.get(position).getIdMenu());
+                    intent.putExtra("idRestaurant", LISTDATA.get(position).getIidRestaurant());
+                    intent.putExtra("description", LISTDATA.get(position).getDescription());
+                    intent.putExtra("precio", LISTDATA.get(position).getPrecio().toString());
+                    intent.putExtra("getUrlPhotoProducto", LISTDATA.get(position).getUrlPhotoProducto());
+
                     parent.getContext().startActivity(intent);
 
                 }

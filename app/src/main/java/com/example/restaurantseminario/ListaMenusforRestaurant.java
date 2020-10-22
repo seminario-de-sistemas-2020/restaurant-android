@@ -67,6 +67,8 @@ public class ListaMenusforRestaurant extends AppCompatActivity {
                     JSONArray listData = response.getJSONArray("listMenu");
                     for (int i=0; i<listData.length();i++){
                         JSONObject obj = listData.getJSONObject(i);
+                        String idMenu = obj.getString("_id");
+                        String idRestaurant = obj.getString("idRestaurant");
                         String nombre = obj.getString("nombre");
                         String urlImage = obj.getString("fotoProducto");
                         String descripcion = obj.getString("descripcion");
@@ -74,6 +76,8 @@ public class ListaMenusforRestaurant extends AppCompatActivity {
 
 
                         StructureListMenuRestaurant item = new StructureListMenuRestaurant();
+                        item.setIdMenu(idMenu);
+                        item.setIdRestaurant(idRestaurant);
                         item.setName(nombre);
                         item.setUrlPhotoProducto(urlImage);
                         item.setDescription(descripcion);

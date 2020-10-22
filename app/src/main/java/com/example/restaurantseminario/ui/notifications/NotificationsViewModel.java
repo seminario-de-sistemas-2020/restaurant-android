@@ -12,7 +12,7 @@ public class NotificationsViewModel extends ViewModel {
 
     public NotificationsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Role :" + DataUser.role2);
+        mText.setValue("Role :" + DataUser.role);
     }
 
     public LiveData<String> getText() {

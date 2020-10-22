@@ -20,5 +20,59 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.07" />
+
+    <Button
+        android:id="@+id/btn_en_espera"
+        android:layout_width="106dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/restangule"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="en espera"
+        android:textColor="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_orders_imprimir_factura"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_orders_imprimir_factura"
+        android:layout_width="108dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/restangule"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="en proceso"
+        android:textColor="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_orders_imprimir_factura3" />
+
+    <Button
+        android:id="@+id/btn_orders_imprimir_factura3"
+        android:layout_width="108dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/restangule"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="enviado"
+        android:textColor="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="381dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:text="LISTA DE PEDIDOS"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
