@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.example.restaurantseminario.ListaMenusforRestaurant;
 import com.example.restaurantseminario.R;
 import com.example.restaurantseminario.RegisterUser;
 import com.example.restaurantseminario.listMenus.listaDeMenus;
@@ -75,7 +76,7 @@ public class HomeAdapter extends BaseAdapter {
                     Toast.makeText(v.getContext(), LISTDATA.get(position).getIdClient(), Toast.LENGTH_SHORT).show();
 
                     //como navegar a otro fragmen o a otra activida
-                    Intent intent = new Intent(viewGroup.getContext(), RegisterUser.class);
+                    Intent intent = new Intent(viewGroup.getContext(), ListaMenusforRestaurant.class);
                     intent.putExtra("idRestaurant", LISTDATA.get(position).getId());
                     viewGroup.getContext().startActivity(intent);
 
