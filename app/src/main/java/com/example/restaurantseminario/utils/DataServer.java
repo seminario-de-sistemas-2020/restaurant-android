@@ -14,5 +14,7 @@ public class DataServer {
 
     // realizar ordenes
     public static String HOST_ADD_MENU_TEMPORAL = HOST + "order/add/temporal/idClient=";
+    public static String HOST_LIST_ALL_ORDENES_USER = HOST + "order/show/all/list/idClient=";
+    public static String HOST_CANCELAR_ORDEN = HOST + "order/cancelar/idOrden=";
 
 }

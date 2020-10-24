@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView_order"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_undraw_breakfast_psiw" />
+
+            <TextView
+                android:id="@+id/txt_order_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="32dp"
+                android:text="Precio unitario"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView_order"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="59dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="32dp"
+                android:text="cantidad"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btn_order_cancelar"
+                app:layout_constraintHorizontal_bias="0.378"
+                app:layout_constraintStart_toEndOf="@+id/txt_order_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_order_precio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="precio"
+                android:textAlignment="textEnd"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView_order"
+                app:layout_constraintTop_toBottomOf="@+id/txt_order_title"
+                app:layout_constraintVertical_bias="0.046" />
+
+            <Button
+                android:id="@+id/btn_order_cancelar"
+                android:layout_width="88dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="34dp"
+                android:background="@drawable/restangule"
+                android:backgroundTint="#FD5244"
+                android:text="cancelar"
+                android:textColor="#FBFBFB"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.525" />
+
+            <SeekBar
+                android:id="@+id/seekBar_order_cantidad"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_order_cancelar"
+                app:layout_constraintHorizontal_bias="0.897"
+                app:layout_constraintStart_toEndOf="@+id/txt_order_precio"
+                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                app:layout_constraintVertical_bias="0.439" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="Bs."
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/seekBar_order_cantidad"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txt_order_precio"
+                app:layout_constraintTop_toBottomOf="@+id/txt_order_title"
+                app:layout_constraintVertical_bias="0.046" />
+
+            <TextView
+                android:id="@+id/txt_order_name"
+                android:layout_width="265dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="3dp"
+                android:text="name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView_order"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_order_cantidad"
+                android:layout_width="31dp"
+                android:layout_height="23dp"
+                android:text="can"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:flow_horizontalAlign="center"
+                app:flow_verticalAlign="center"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar_order_cantidad"
+                app:layout_constraintEnd_toStartOf="@+id/btn_order_cancelar"
+                app:layout_constraintHorizontal_bias="0.775"
+                app:layout_constraintStart_toEndOf="@+id/imageView_order"
+                app:layout_constraintTop_toBottomOf="@+id/txt_order_name"
+                app:layout_constraintVertical_bias="0.758" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="164dp"
+                android:text="TOTAL:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView_order"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar_order_cantidad"
+                app:layout_constraintVertical_bias="0.928" />
+
+            <TextView
+                android:id="@+id/txt_order_precioTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="00.00"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.257"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                app:layout_constraintTop_toBottomOf="@+id/btn_order_cancelar" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bs."
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txt_order_precioTotal"
+                app:layout_constraintTop_toBottomOf="@+id/btn_order_cancelar"
+                app:layout_constraintVertical_bias="0.965" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

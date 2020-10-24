@@ -12,6 +12,10 @@ public class DataUser {
     public  static String idOwnerRestarant = "";
 
 
+    // precio total que debe cada usuario
+
+    public static double PRECIO_TOTAL = 0.0;
+
     // datos de prueba
     public static String role2 ="user";
     public static String id2 ="123456789";

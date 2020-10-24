@@ -7,8 +7,25 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.restaurantseminario.R;
+import com.example.restaurantseminario.ordenesAdapter.OrdenesAdapter;
+import com.example.restaurantseminario.ordenesAdapter.StructureDataOrdenes;
+import com.example.restaurantseminario.utils.DataServer;
+import com.example.restaurantseminario.utils.DataUser;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +78,76 @@ public class OrdenesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_ordenes, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
+
+        Toast.makeText(getContext(), "Hello from fragment ordesdes", Toast.LENGTH_LONG).show();
+
+        final ListView list = this.getActivity().findViewById(R.id.order_list);
+        final ArrayList<StructureDataOrdenes> datos = new ArrayList<>();
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get(DataServer.HOST_LIST_ALL_ORDENES_USER + DataUser.id, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+                try {
+                    JSONArray listData = response.getJSONArray("litsOrdenes");
+                    double precioTotal = 0.0;
+                    for(int i= 0; i < listData.length(); i++){
+                        JSONObject obj = listData.getJSONObject(i);
+                        String name = (String) obj.getString("nameMenu");
+                        String idOrden = (String) obj.getString("_id");
+                        double precioUnitario = Double.parseDouble(obj.getString("precioUnitario"));
+                        double cantidad = Double.parseDouble(obj.getString("cantidad"));
+                        double cantidadTotal = Double.parseDouble(obj.getString("precio_cantidad_tocal"));
+                        String photoProducto = obj.getString("fotoProducto");
+
+                        //precio total que debe el usuario
+
+                        precioTotal = precioTotal + cantidadTotal;
+
+                        StructureDataOrdenes item = new StructureDataOrdenes();
+                        item.setNameMenu(name);
+                        item.setIdOrden(idOrden);
+                        item.setPrecioUnitario(precioUnitario);
+                        item.setCantidad(cantidad);
+                        item.setPrecioCantidadTotal(cantidadTotal);
+                        item.setPhotoProducto(photoProducto);
+
+
+                        datos.add(item);
+                    }
+
+                    DataUser.PRECIO_TOTAL = precioTotal;
+
+                    OrdenesAdapter adapter = new OrdenesAdapter(datos, getContext());
+                    list.setAdapter(adapter);
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+            }
+
+
+        });
+
+        TextView textView_TOTAL = (TextView)this.getActivity().findViewById(R.id.txt_orden_TOTAL);
+        textView_TOTAL.setText(String.valueOf(DataUser.PRECIO_TOTAL));
+
     }
 }
