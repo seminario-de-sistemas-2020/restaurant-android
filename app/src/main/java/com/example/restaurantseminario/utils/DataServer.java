@@ -12,9 +12,18 @@ public class DataServer {
     public static String HOST_NEW_MENU_IDRESTAURANTE = HOST + "menu/create/idrestaurant=";
     public static String HOST_LIST_MENU_IDRESTAURANTE = HOST + "menu/show/list/all/idrestaurant=";
 
+    // restaurante
+    public static String HOST_CREATE_REGISTRAR_RESTAURANT = HOST + "restaurant";
+    public static String HOST_UPLOAD_LOGO = HOST+"restaurant/upload/file=logo/idrestaurant=";
+    public static String HOST_UPLOAD_FOTO_LUGAR = HOST+"restaurant/upload/file=fotolugar/idrestaurant=";
+
     // realizar ordenes
     public static String HOST_ADD_MENU_TEMPORAL = HOST + "order/add/temporal/idClient=";
     public static String HOST_LIST_ALL_ORDENES_USER = HOST + "order/show/all/list/idClient=";
     public static String HOST_CANCELAR_ORDEN = HOST + "order/cancelar/idOrden=";
+
+    // Menus
+    public static String HOST_CREAR_NUEVO_MENU = HOST + "menu/create/idrestaurant=";
+    public static String HOST_UPLOAD_IMAGE_MENU = HOST + "menu/upload/fotoproduct/file=fotoproducto/idmenu=";
 
 }

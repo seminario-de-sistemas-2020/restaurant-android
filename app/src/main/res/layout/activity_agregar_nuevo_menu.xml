@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgregarNuevoMenu">
+
+    <Button
+        android:id="@+id/btn_crearMenu_crearmenu"
+        android:layout_width="315dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/restangule"
+        android:backgroundTint="#9C27B0"
+        android:drawableBottom="@drawable/restangule"
+        android:text="Crear menu"
+        android:textColor="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="367dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="28dp"
+        android:text="Crear nuevo menu"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_crearMenu_nombre"
+        android:layout_width="347dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rectangule_green"
+        android:ems="10"
+        android:hint="Nombre del menu"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <EditText
+        android:id="@+id/txt_crearMenu_precio"
+        android:layout_width="347dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangule_green"
+        android:ems="10"
+        android:hint="Precio"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_crearMenu_nombre" />
+
+    <EditText
+        android:id="@+id/txt_crearMenu_dedscription"
+        android:layout_width="352dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangule_green"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Descripcion"
+        android:inputType="textMultiLine"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_crearMenu_precio" />
+
+    <Button
+        android:id="@+id/btn_crearMenu_seleccionarImagen"
+        android:layout_width="160dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rectangule_green"
+        android:shadowColor="#6A0E0E"
+        android:text="Seleccionar imagen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_crearMenu_dedscription" />
+
+    <ImageView
+        android:id="@+id/imageview_crearMenu_image"
+        android:layout_width="259dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_crearMenu_seleccionarImagen"
+        app:srcCompat="@drawable/ic_undraw_breakfast_psiw" />
+</androidx.constraintlayout.widget.ConstraintLayout>

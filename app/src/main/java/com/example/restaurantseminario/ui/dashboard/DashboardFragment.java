@@ -1,9 +1,15 @@
 package com.example.restaurantseminario.ui.dashboard;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.TrafficStats;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.restaurantseminario.AgregarNuevoMenu;
+import com.example.restaurantseminario.FormularioRestaurant;
 import com.example.restaurantseminario.R;
 import com.example.restaurantseminario.adapters.HomeAdapter;
 import com.example.restaurantseminario.adapters.StructureDataHome;
@@ -36,6 +44,7 @@ import cz.msebera.android.httpclient.Header;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
+    private boolean yatieneRestaurante = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -73,6 +82,7 @@ public class DashboardFragment extends Fragment {
        final ArrayList<StructureDashboard> datos = new ArrayList<>();
 
         final String IDRESTAURANT= DataUser.idOwnerRestarant;
+
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(DataServer.HOST_LIST_MENU_IDRESTAURANTE + IDRESTAURANT +"&order=asc", new JsonHttpResponseHandler(){
             @Override
@@ -84,6 +94,9 @@ public class DashboardFragment extends Fragment {
 
                     Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     JSONArray listData = response.getJSONArray("listMenu");
+                    if(listData.length()>0){
+                        yatieneRestaurante=true;
+                    }
                     for (int i=0; i<listData.length();i++){
                         JSONObject obj = listData.getJSONObject(i);
 
@@ -119,7 +132,50 @@ public class DashboardFragment extends Fragment {
         });
 
 
+        //buttons add restaurante and add new menu
+        Button btnAddRestaurant = (Button) this.getActivity().findViewById(R.id.btn_add_restaurant);
+        btnAddRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(yatieneRestaurante==false){
+                    Intent intent = new Intent(getContext(), FormularioRestaurant.class);
+                    startActivityForResult(intent,0);
+                }
+                if(yatieneRestaurante == true){
+                   Toast.makeText(getContext(),"Usted ya tiene un restaurante resgistrado",Toast.LENGTH_LONG).show();
+
+                    AlertDialog.Builder alertDialoguedBuilder = new AlertDialog.Builder(getContext());
+                    alertDialoguedBuilder.setMessage("Usted ya tiene un restaurante creado");
+                    alertDialoguedBuilder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    alertDialoguedBuilder.show();
+
+                }
+
+
+            }
+        });
+
+        //button crear nuevo menu
+        Button btnCrearMenu = (Button)this.getActivity().findViewById(R.id.btn_lista_add_menu);
+        btnCrearMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AgregarNuevoMenu.class);
+                intent.putExtra("idRestaurante", IDRESTAURANT);
+                startActivityForResult(intent,0);
+            }
+        });
+
+
     }
+
+
+
 
     private void siEsUser() {
 
