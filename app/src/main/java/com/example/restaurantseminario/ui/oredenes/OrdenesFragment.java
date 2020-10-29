@@ -1,5 +1,6 @@
 package com.example.restaurantseminario.ui.oredenes;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -86,7 +88,7 @@ public class OrdenesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        calculatoPrecioTOTAL();
 
 
         Toast.makeText(getContext(), "Hello from fragment ordesdes", Toast.LENGTH_LONG).show();
@@ -102,7 +104,7 @@ public class OrdenesFragment extends Fragment {
 
                 try {
                     JSONArray listData = response.getJSONArray("litsOrdenes");
-                    double precioTotal = 0.0;
+                    //double precioTotal = 0.0;
                     for(int i= 0; i < listData.length(); i++){
                         JSONObject obj = listData.getJSONObject(i);
                         String name = (String) obj.getString("nameMenu");
@@ -114,7 +116,7 @@ public class OrdenesFragment extends Fragment {
 
                         //precio total que debe el usuario
 
-                        precioTotal = precioTotal + cantidadTotal;
+                        //precioTotal = precioTotal + cantidadTotal;
 
                         StructureDataOrdenes item = new StructureDataOrdenes();
                         item.setNameMenu(name);
@@ -128,7 +130,7 @@ public class OrdenesFragment extends Fragment {
                         datos.add(item);
                     }
 
-                    DataUser.PRECIO_TOTAL = precioTotal;
+                    //DataUser.PRECIO_TOTAL = precioTotal;
 
                     OrdenesAdapter adapter = new OrdenesAdapter(datos, getContext());
                     list.setAdapter(adapter);
@@ -146,8 +148,37 @@ public class OrdenesFragment extends Fragment {
 
         });
 
-        TextView textView_TOTAL = (TextView)this.getActivity().findViewById(R.id.txt_orden_TOTAL);
-        textView_TOTAL.setText(String.valueOf(DataUser.PRECIO_TOTAL));
+        Button btnCalcularprecioTotal = (Button)getActivity().findViewById(R.id.btn_orders_calcular_preciototal);
+        btnCalcularprecioTotal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculatoPrecioTOTAL();
+            }
+        });
 
+
+
+    }
+
+    public void calculatoPrecioTOTAL(){
+        final TextView textView_TOTAL = (TextView)this.getActivity().findViewById(R.id.txt_orden_TOTAL);
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        //PRECIO TOTAL DEL CLIENTE
+        client.get(DataServer.HOST_GET_TOTALPRECIOCANTIDAD+DataUser.id, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try{
+                    response.getString("prcioTotalCantidad");
+                    //Toast.makeText(getContext(), response.getString("prcioTotalCantidad"), Toast.LENGTH_LONG ).show();
+                    textView_TOTAL.setText(String.valueOf(response.getString("prcioTotalCantidad")));
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
     }
 }

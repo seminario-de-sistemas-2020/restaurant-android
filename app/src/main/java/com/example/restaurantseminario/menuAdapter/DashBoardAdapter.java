@@ -21,6 +21,7 @@ public class DashBoardAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<StructureDashboard> LISTDATA;
+
     public DashBoardAdapter(ArrayList<StructureDashboard> data, Context context){
         LISTDATA = data;
         this.context = context;
@@ -64,6 +65,7 @@ public class DashBoardAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(parent.getContext(), EditarMenuOwner.class);
+
 
                     intent.putExtra("Name", LISTDATA.get(position).getName());
                     intent.putExtra("idMenu",LISTDATA.get(position).getIdMenu());

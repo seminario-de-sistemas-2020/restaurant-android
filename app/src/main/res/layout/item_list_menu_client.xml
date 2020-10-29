@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="260dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/menus_user_view"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="270dp"
             android:layout_marginBottom="23dp"
             android:paddingBottom="12dp">
 
@@ -36,15 +36,14 @@
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_client_menu_title"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/txt_client_menu_description"
-                android:layout_width="161dp"
-                android:layout_height="186dp"
+                android:layout_width="163dp"
+                android:layout_height="149dp"
                 android:layout_margin="4dp"
                 android:layout_marginTop="15dp"
                 android:paddingLeft="12dp"
@@ -56,8 +55,8 @@
 
             <ImageView
                 android:id="@+id/imageView_client_menu_list"
-                android:layout_width="230dp"
-                android:layout_height="213dp"
+                android:layout_width="227dp"
+                android:layout_height="150dp"
                 android:layout_margin="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +69,7 @@
                 android:layout_width="229dp"
                 android:layout_height="54dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:paddingTop="4dp"
                 android:text="title"
                 android:textAlignment="center"
@@ -80,28 +79,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView_client_menu_list" />
 
             <TextView
-                android:id="@+id/txt_client_menu_precio"
-                android:layout_width="69dp"
-                android:layout_height="39dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:padding="2dp"
-                android:text="0.0"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/btn_client_menu_agregar"
-                app:layout_constraintEnd_toStartOf="@+id/bs_client"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/txt_client_menu_title"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_client_menu_list"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
                 android:id="@+id/bs_client"
                 android:layout_width="34dp"
                 android:layout_height="42dp"
-                android:layout_marginEnd="44dp"
+                android:layout_marginEnd="52dp"
                 android:paddingTop="2dp"
                 android:text="Bs."
                 android:textAlignment="textStart"
@@ -110,7 +91,25 @@
                 app:layout_constraintBottom_toTopOf="@+id/btn_client_menu_agregar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView_client_menu_list"
-                app:layout_constraintVertical_bias="0.625" />
+                app:layout_constraintVertical_bias="0.45" />
+
+            <TextView
+                android:id="@+id/txt_client_menu_precio"
+                android:layout_width="69dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="12dp"
+                android:padding="2dp"
+                android:text="0.0"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/btn_client_menu_agregar"
+                app:layout_constraintEnd_toStartOf="@+id/bs_client"
+                app:layout_constraintHorizontal_bias="0.818"
+                app:layout_constraintStart_toEndOf="@+id/txt_client_menu_title"
+                app:layout_constraintTop_toBottomOf="@+id/txt_client_menu_description"
+                app:layout_constraintVertical_bias="0.837" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

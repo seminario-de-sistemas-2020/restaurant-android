@@ -21,19 +21,19 @@
             android:text="Realizar pedido"
             android:textColor="#FDFDFD"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_orders_imprimir_factura"
+            app:layout_constraintEnd_toStartOf="@+id/btn_orders_calcular_preciototal"
             app:layout_constraintHorizontal_bias="0.17"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btn_orders_imprimir_factura"
+            android:id="@+id/btn_orders_calcular_preciototal"
             android:layout_width="147dp"
             android:layout_height="39dp"
             android:layout_marginEnd="44dp"
             android:layout_marginBottom="68dp"
             android:background="@drawable/restangule"
             android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Imprimir factura"
+            android:text="actualizar "
             android:textColor="#FDFDFD"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -55,7 +55,7 @@
             android:id="@+id/order_list"
             android:layout_width="410dp"
             android:layout_height="525dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_orders_imprimir_factura"
+            app:layout_constraintBottom_toTopOf="@+id/btn_orders_calcular_preciototal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
             android:layout_marginEnd="16dp"
             android:text="Bs."
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btn_orders_imprimir_factura"
+            app:layout_constraintBottom_toTopOf="@+id/btn_orders_calcular_preciototal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/order_list"
             app:layout_constraintVertical_bias="0.551" />
@@ -83,7 +83,7 @@
             android:text="00.00"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btn_orders_imprimir_factura"
+            app:layout_constraintBottom_toTopOf="@+id/btn_orders_calcular_preciototal"
             app:layout_constraintEnd_toStartOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/order_list"
             app:layout_constraintVertical_bias="0.023" />
@@ -96,7 +96,7 @@
             android:layout_marginTop="8dp"
             android:text="TOTAL:"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btn_orders_imprimir_factura"
+            app:layout_constraintBottom_toTopOf="@+id/btn_orders_calcular_preciototal"
             app:layout_constraintEnd_toStartOf="@+id/txt_orden_TOTAL"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

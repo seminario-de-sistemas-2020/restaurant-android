@@ -21,9 +21,12 @@ public class DataServer {
     public static String HOST_ADD_MENU_TEMPORAL = HOST + "order/add/temporal/idClient=";
     public static String HOST_LIST_ALL_ORDENES_USER = HOST + "order/show/all/list/idClient=";
     public static String HOST_CANCELAR_ORDEN = HOST + "order/cancelar/idOrden=";
+    public static String HOST_UPDATE_CANTIDAD_PRODUCTO = HOST + "order/update/producto/cantidad/idOrdenTemporal=";
+    public static String HOST_GET_TOTALPRECIOCANTIDAD = HOST + "order/calcular/preciototal/idclient=";
 
     // Menus
     public static String HOST_CREAR_NUEVO_MENU = HOST + "menu/create/idrestaurant=";
     public static String HOST_UPLOAD_IMAGE_MENU = HOST + "menu/upload/fotoproduct/file=fotoproducto/idmenu=";
+    public static String HOST_MENU_UPDATE_DATA = HOST + "menu/update/data/idmenu=";
 
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -104,7 +105,9 @@ public class AgregarNuevoMenu extends AppCompatActivity implements View.OnClickL
                                 Toast.makeText(root, idMenu,Toast.LENGTH_LONG).show();
                                 enviarImg(idMenu);
                                 // vuelave a la actividad anterior
-                                
+                               Intent intent = new Intent(root, BottonNavigstionActivity.class);
+                               startActivity(intent);
+                               this.onFinish();
 
                             } catch (JSONException | FileNotFoundException e) {
                                 e.printStackTrace();
@@ -221,10 +224,6 @@ public class AgregarNuevoMenu extends AppCompatActivity implements View.OnClickL
 
         });
         alertopt.show();
-
-
-
-
     }
 
     private void LoadMediaData()  {

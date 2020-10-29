@@ -84,6 +84,11 @@ public class HomeFragment extends Fragment {
                             response.getString("message");
                     Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     JSONArray listData = response.getJSONArray("restaurants");
+
+                    if (listData.length()>0){
+                        DataUser.yatieneRestaurante = true;
+                    }
+
                     for (int i=0;i<listData.length();i++){
                         JSONObject obj = listData.getJSONObject(i);
 

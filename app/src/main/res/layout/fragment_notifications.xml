@@ -32,12 +32,12 @@
         android:text="en espera"
         android:textColor="#FDFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_orders_imprimir_factura"
+        app:layout_constraintEnd_toStartOf="@+id/btn_orders_calcular_preciototal"
         app:layout_constraintHorizontal_bias="0.644"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_orders_imprimir_factura"
+        android:id="@+id/btn_orders_calcular_preciototal"
         android:layout_width="108dp"
         android:layout_height="35dp"
         android:layout_marginEnd="28dp"

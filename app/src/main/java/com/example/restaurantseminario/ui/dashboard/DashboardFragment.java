@@ -44,7 +44,7 @@ import cz.msebera.android.httpclient.Header;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
-    private boolean yatieneRestaurante = false;
+    private boolean yatieneRestaurante = DataUser.yatieneRestaurante;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -94,9 +94,7 @@ public class DashboardFragment extends Fragment {
 
                     Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     JSONArray listData = response.getJSONArray("listMenu");
-                    if(listData.length()>0){
-                        yatieneRestaurante=true;
-                    }
+
                     for (int i=0; i<listData.length();i++){
                         JSONObject obj = listData.getJSONObject(i);
 
@@ -178,6 +176,42 @@ public class DashboardFragment extends Fragment {
 
 
     private void siEsUser() {
+
+        Button btnAddRestaurant = (Button) this.getActivity().findViewById(R.id.btn_add_restaurant);
+        btnAddRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                    AlertDialog.Builder alertDialoguedBuilder = new AlertDialog.Builder(getContext());
+                    alertDialoguedBuilder.setMessage("Solicite el cambio de rol para agregar un restaurante");
+                    alertDialoguedBuilder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    alertDialoguedBuilder.show();
+
+
+            }
+        });
+
+        Button btnCrearMenu = (Button)this.getActivity().findViewById(R.id.btn_lista_add_menu);
+        btnCrearMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialoguedBuilder = new AlertDialog.Builder(getContext());
+                alertDialoguedBuilder.setMessage("Usted no cuenta con el rol necesario para la añadir un menu");
+                alertDialoguedBuilder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertDialoguedBuilder.show();
+            }
+        });
 
     }
 

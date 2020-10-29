@@ -20,13 +20,16 @@ import com.example.restaurantseminario.ui.oredenes.OrdenesFragment;
 import com.example.restaurantseminario.utils.DataServer;
 import com.example.restaurantseminario.utils.DataUser;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -82,11 +85,17 @@ public class OrdenesAdapter  extends BaseAdapter {
             final TextView textViewPrecioTotal = (TextView)view.findViewById(R.id.txt_order_precioTotal);
             textViewPrecioTotal.setText(String.valueOf( cantidad * precionUnitario));
 
+           // final  TextView textViewTOTAL =(TextView) view.findViewById(R.id.txt_orden_TOTAL);
+
             //seekbar
             SeekBar seekBar = (SeekBar)view.findViewById(R.id.seekBar_order_cantidad);
 
             seekBar.setProgress(0); //inicial
             seekBar.setMax(50);  // fional
+            final View finalView = view;
+
+
+
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -94,6 +103,8 @@ public class OrdenesAdapter  extends BaseAdapter {
                     double PROGRESS = progress+1;
                     textViewCntidad.setText(String.valueOf(PROGRESS));
                     textViewPrecioTotal.setText(String.valueOf( precionUnitario * PROGRESS ));
+
+                    //DataUser.PRECIO_TOTAL = DataUser.PRECIO_TOTAL + precionUnitario*PROGRESS;
                     //Toast.makeText(parent.getContext(), String.valueOf(precionUnitario*progress),Toast.LENGTH_SHORT).show();
 
                 }
@@ -105,6 +116,30 @@ public class OrdenesAdapter  extends BaseAdapter {
 
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
+                    int PROGRESS = seekBar.getProgress()+1;
+                    final AsyncHttpClient client = new AsyncHttpClient();
+                    RequestParams params = new RequestParams();
+                    params.add("cantidad", String.valueOf(PROGRESS));
+                    client.patch(DataServer.HOST_UPDATE_CANTIDAD_PRODUCTO +idOrden,params,new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            super.onSuccess(statusCode, headers, response);
+                            client.get(DataServer.HOST_GET_TOTALPRECIOCANTIDAD + DataUser.id, new JsonHttpResponseHandler() {
+                                @Override
+                                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                    super.onSuccess(statusCode, headers, response);
+                                    try{
+                                        response.getString("prcioTotalCantidad");
+                                        DataUser.PRECIO_TOTAL =Double.valueOf(response.getString("prcioTotalCantidad"));
+                                    }catch (JSONException e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        }
+                    });
+
+                        //Toast.makeText(finalView.getContext(), "se detubo "+PROGRESS, Toast.LENGTH_LONG).show();
 
                 }
             });

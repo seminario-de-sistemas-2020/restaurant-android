@@ -7,7 +7,7 @@
     tools:context=".EditarMenuOwner">
 
     <Button
-        android:id="@+id/btn_realizar_registro4"
+        android:id="@+id/btn_editMenu_guardarCambios"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginBottom="92dp"
@@ -71,8 +71,9 @@
         android:inputType="textPersonName"
         android:padding="5dp"
         android:paddingStart="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_realizar_registro4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_editMenu_guardarCambios"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_menu_edit_precio"
         app:layout_constraintVertical_bias="0.0" />

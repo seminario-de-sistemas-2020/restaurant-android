@@ -16,6 +16,9 @@ public class DataUser {
 
     public static double PRECIO_TOTAL = 0.0;
 
+    // si ya tiene un restaurante creado
+    public static Boolean yatieneRestaurante= false;
+
     // datos de prueba
     public static String role2 ="user";
     public static String id2 ="123456789";
